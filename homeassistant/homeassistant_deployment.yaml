@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homeassistant-deployment
+  labels:
+    name: homeassistant
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: homeassistant
+  template:
+    metadata:
+      labels:
+        name: homeassistant
+    spec:
+      hostNetwork: true
+      containers:
+      - name: homeassistant
+        image: homeassistant/home-assistant:stable
+        volumeMounts:
+        - name: homeassistant-pv
+          mountPath: /config
+        env:
+        - name: TZ
+          value: Europe/London
+      volumes:
+      - name: homeassistant-pv
+        persistentVolumeClaim:
+          claimName: homeassistant-pvc
