@@ -20,7 +20,7 @@ spec:
         image: homeassistant/home-assistant:stable
         volumeMounts:
         - name: homeassistant-pv
-          mountPath: /homeassistant-X
+          mountPath: /config
         env:
         - name: TZ
           value: Europe/London
