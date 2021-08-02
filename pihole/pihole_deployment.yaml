@@ -14,7 +14,6 @@ spec:
       labels:
         name: pihole
     spec:
-      hostNetwork: true
       containers:
       - name: pihole
         image: pihole/pihole:stable
