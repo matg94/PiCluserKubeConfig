@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: pihole
-        image: pihole/pihole:stable
+        image: pihole/pihole:latest
         ports:
         - containerPort: 53
           hostPort: 53
