@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: pihole-pvc-dns
 spec:
-  storageClassName: ""
+  storageClassName: manual
   accessModes:
     - ReadWriteMany
   resources:
