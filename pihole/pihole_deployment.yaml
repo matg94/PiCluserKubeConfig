@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole-deployment
+  labels:
+    name: pihole
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: pihole
+  template:
+    metadata:
+      labels:
+        name: pihole
+    spec:
+      hostNetwork: true
+      containers:
+        - name: pihole
+          image: pihole/pihole:stable
+        ports:
+          - containerPort: 53
+            protocol: TCP
+          - containerPort: 53
+            protocol: UDP
+          - containerPort: 80
+          - containerPort: 443
+        env:
+          - name: TZ
+            value: Europe/London
+          - name: DNS1
+            value: 9.9.9.9
+          - name: DNS2
+            value: 149.112.112.112
+          - name: ServerIP
+            value: 192.168.1.101
+      volumes:
+      - name: pihole-pv
+        persistentVolumeClaim:
+          claimName: pihole-pvc
+      - name: pihole-pv-dns
+        persistentVolumeClaim:
+          claimName: pihole-pvc-dns
