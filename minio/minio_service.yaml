@@ -11,4 +11,3 @@ spec:
   ports:
     - port: 9000
       nodePort: 30009
-      protocol: TCP
