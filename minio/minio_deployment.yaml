@@ -15,12 +15,12 @@ spec:
         name: minio
     spec:
       containers:
+      - name: minio
+        image: minio/minio:latest
         ports:
         - containerPort: 9000
           hostPort: 30009
           protocol: TCP
-      - name: minio
-        image: minio/minio:latest
         volumeMounts:
         - name: minio-pv
           mountPath: /export
