@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: minio
-        image: minio/minio:latest
+        image: minio/minio server
         ports:
         - containerPort: 9000
           hostPort: 30009
