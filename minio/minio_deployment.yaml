@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio-deployment
+  labels:
+    name: minio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: minio
+  template:
+    metadata:
+      labels:
+        name: minio
+    spec:
+      containers:
+        ports:
+        - containerPort: 9000
+      - name: minio
+        image: minio/minio:latest
+        volumeMounts:
+        - name: minio-pv
+          mountPath: /export
+      volumes:
+      - name: minio-pv
+        persistentVolumeClaim:
+          claimName: minio-pvc
+      nodeSelector:
+        disktype: external
