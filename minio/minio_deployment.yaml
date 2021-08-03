@@ -18,6 +18,7 @@ spec:
         ports:
         - containerPort: 9000
           hostPort: 30009
+          protocol: TCP
       - name: minio
         image: minio/minio:latest
         volumeMounts:
