@@ -10,8 +10,6 @@ spec:
     - name: tcp-2049
       port: 2049
       nodePort: 32049
-      protocol: TCP
     - name: udp-111
       port: 111
       nodePort: 30111
-      protocol: UDP
