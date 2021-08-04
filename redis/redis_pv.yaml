@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: redispv
 spec:
-  storageClassName: ""
+  storageClassName: nfs-class
   capacity:
     storage: 2Gi
   accessModes:
