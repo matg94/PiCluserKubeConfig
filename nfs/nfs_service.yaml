@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     role: nfs
+  type: nodePort
   ports:
     - name: tcp-2049
       port: 2049
