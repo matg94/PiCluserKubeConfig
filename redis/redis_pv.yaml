@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: redispv
+  name: redis-pv
 spec:
-  storageClassName: manual
+  storageClassName: standard
   capacity:
     storage: 2Gi
   accessModes:
