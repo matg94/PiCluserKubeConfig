@@ -8,13 +8,13 @@ spec:
   containers:
   - image: redis
     name: redisdb
-    volumeMounts:
-    - name: redis-data
-      mountPath: /data
     ports:
     - containerPort: 6379
       protocol: TCP
+    volumeMounts:
+    - name: redis-pv
+      mountPath: /data
   volumes:
-  - name: redis-data
+  - name: redis-pv
     persistentVolumeClaim:
-      claimName: redisdb-pvc
+      claimName: redis-pvc

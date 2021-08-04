@@ -5,8 +5,9 @@ metadata:
 spec:
   storageClassName: ""
   capacity:
-    storage: 500Mi
+    storage: 2Gi
   accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data"
+    - ReadWriteMany
+  nfs:
+    server: nfs-server.default.svc.cluster.local
+    path: "/redis"
