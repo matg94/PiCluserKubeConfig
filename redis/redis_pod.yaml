@@ -12,9 +12,9 @@ spec:
     - containerPort: 6379
       protocol: TCP
     volumeMounts:
-    - name: redis-pv
+    - name: redispv
       mountPath: /data
   volumes:
-  - name: redis-pv
+  - name: redispv
     persistentVolumeClaim:
-      claimName: redis-pvc
+      claimName: redispv
