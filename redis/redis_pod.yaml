@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - image: redis
-    name: redisdb
+    name: redis
     ports:
     - containerPort: 6379
       protocol: TCP

@@ -8,5 +8,5 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: nfs-server-74f76d7665-668qw.default.svc.cluster.local
+    server: nfs-server.default.svc.cluster.local
     path: "/redis"
