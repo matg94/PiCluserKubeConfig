@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: redispv
 spec:
-  storageClassName: standard
+  storageClassName: manual
   capacity:
     storage: 2Gi
   accessModes:
