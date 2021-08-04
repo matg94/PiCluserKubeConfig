@@ -14,9 +14,11 @@ spec:
       securityContext:
         privileged: true
       volumeMounts:
-      - name: nfs-volume
+      - name: nfs-pv
         mountPath: /exports
   volumes:
   - name: nfs-pv
     persistentVolumeClaim:
       claimName: nfs-pvc
+  nodeSelector:
+    disktype: external
