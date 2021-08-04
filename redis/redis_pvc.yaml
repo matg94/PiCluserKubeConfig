@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: redispv
 spec:
-  storageClassName: nfs-class
+  storageClassName: standard
   accessModes:
     - ReadWriteOnce
   resources:
