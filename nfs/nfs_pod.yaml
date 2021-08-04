@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nfs-server-pod
+  labels:
+    role: nfs
+spec:
+  containers:
+    - name: nfs-server-container
+      image: erichough/nfs-server
+      env: 
+      - name: NFS_EXPORT_0
+        value: '/exports'
+      securityContext:
+        privileged: true
+      volumeMounts:
+      - name: nfs-volume
+        mountPath: /exports
+  volumes:
+  - name: nfs-pv
+    persistentVolumeClaim:
+      claimName: nfs-pvc
