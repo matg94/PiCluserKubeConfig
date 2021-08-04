@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: nfs-pv
 spec:
-  storageClassName: standard
+  storageClassName: nfs-class
   capacity:
     storage: 100Gi
   accessModes:
