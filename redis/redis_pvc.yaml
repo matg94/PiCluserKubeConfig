@@ -9,6 +9,3 @@ spec:
   resources:
     requests:
       storage: 2Gi
-  nfs:
-    server: dbc56.efs.us-west-2.amazonaws.com
-    path: "/redis"
