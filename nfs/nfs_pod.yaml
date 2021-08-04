@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: nfs-server-container
-      image: erichough/nfs-server
+      image: itsthenetwork/nfs-server-alpine
       env: 
       - name: NFS_EXPORT_0
         value: '/exports'
