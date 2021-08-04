@@ -7,9 +7,9 @@ metadata:
 spec:
   containers:
     - name: nfs-server-container
-      image: itsthenetwork/nfs-server-alpine
+      image: itsthenetwork/nfs-server-alpine:latest
       env: 
-      - name: NFS_EXPORT_0
+      - name: SHARED_DIRECTORY
         value: '/exports'
       securityContext:
         privileged: true
