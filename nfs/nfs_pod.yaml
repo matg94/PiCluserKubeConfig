@@ -8,9 +8,9 @@ spec:
   containers:
     - name: nfs-server-container
       image: itsthenetwork/nfs-server-alpine:6-arm
-      env: 
-      - name: SHARED_DIRECTORY
-        value: '/exports'
+    env: 
+    - name: SHARED_DIRECTORY
+      value: '/exports'
     ports:
     - name: nfs
       containerPort: 2049
