@@ -6,7 +6,7 @@ metadata:
     role: nfs-server
 spec:
   containers:
-    - name: nfs-server-container
+  - name: nfs-server-container
     image: itsthenetwork/nfs-server-alpine:6-arm
     env: 
     - name: SHARED_DIRECTORY
