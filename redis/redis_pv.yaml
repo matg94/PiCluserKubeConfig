@@ -9,4 +9,4 @@ spec:
     - ReadWriteMany
   nfs:
     server: nfs-server.default.svc.cluster.local
-    path: "/redis"
+    path: "/shared/redis"
