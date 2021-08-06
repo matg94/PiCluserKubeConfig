@@ -13,7 +13,7 @@ spec:
       protocol: TCP
     volumeMounts:
     - name: redis-nfs-pv
-      mountPath: "/redis"
+      mountPath: "/data"
   volumes:
   - name: redis-nfs-pv
     persistentVolumeClaim:
