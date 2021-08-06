@@ -3,6 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: redis-nfs-pvc
 spec:
+  storageClassName: ""
   accessModes:
     - ReadWriteMany
   resources:
