@@ -4,7 +4,7 @@ metadata:
   name: nfs-service
 spec:
   type: ClusterIP
-  clusterIP: 10.0.200.2
+  clusterIP: 10.43.0.20
   selector:
     role: nfs-server
   ports:
