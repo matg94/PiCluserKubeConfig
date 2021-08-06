@@ -12,9 +12,9 @@ spec:
     - containerPort: 6379
       protocol: TCP
     volumeMounts:
-    - name: redis-pv
-      mountPath: /redis
+    - name: redis-nfs-pv
+      mountPath: "/redis"
   volumes:
-  - name: redis-pv
+  - name: redis-nfs-pv
     persistentVolumeClaim:
-      claimName: redis-pvc
+      claimName: redis-nfs-pvc
