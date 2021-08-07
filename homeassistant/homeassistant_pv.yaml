@@ -5,11 +5,11 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: "local-storage"
   capacity:
-    storage: 500Mi
+    storage: 2Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: "/mnt/external/config"
+  nfs:
+    server: 10.43.0.20
+    path: /homeassistant-config

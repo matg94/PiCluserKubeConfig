@@ -5,7 +5,7 @@ metadata:
   labels:
     name: homeassistant
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       name: homeassistant
@@ -28,5 +28,3 @@ spec:
       - name: homeassistant-pv
         persistentVolumeClaim:
           claimName: homeassistant-pvc
-      nodeSelector:
-        disktype: external
