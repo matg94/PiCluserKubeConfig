@@ -3,15 +3,13 @@ kind: Ingress
 metadata:
   name: minimal-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
-  - http:
+  - host: approot.bar.com
+    http:
       paths:
-      - path: /pihole
-        pathType: Prefix
-        backend:
-          service:
-            name: pihole
-            port:
-              number: 80
+      - backend:
+          serviceName: pihole
+          servicePort: 80
+        path: /pihole(/|$)(.*)
