@@ -9,8 +9,11 @@ spec:
   selector:
     name: pihole-deployment
   ports:
-  - port: 53
+  - name: dns-tcp
+    port: 53
     protocol: TCP
-  - port: 53
+  - name: dns-udp
+    port: 53
     protocol: UDP
   - port: 80
+    name: http
