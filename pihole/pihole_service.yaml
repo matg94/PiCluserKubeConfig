@@ -2,13 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: pihole-service
-  labels:
-    name: pihole-deployment
 spec:
   type: ClusterIP
   clusterIP: 10.43.0.21
   selector:
-    name: pihole-deployment
+    name: pihole
   ports:
   - name: dns-tcp
     port: 53
