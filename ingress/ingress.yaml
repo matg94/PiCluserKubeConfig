@@ -6,7 +6,6 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: 192.168.1.101
     http:
       paths:
       - path: /pihole
