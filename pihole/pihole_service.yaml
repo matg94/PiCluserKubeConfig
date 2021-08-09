@@ -6,6 +6,7 @@ metadata:
     name: pihole-deployment
 spec:
   type: ClusterIP
+  clusterIP: 10.42.1.14
   selector:
     name: pihole-deployment
   ports:
