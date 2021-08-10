@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: pihole.cherry.web
+  - host: pihole.cherry.pi
     http:
       paths:
       - path: /
