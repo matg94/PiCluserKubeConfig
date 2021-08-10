@@ -8,10 +8,11 @@ spec:
   rules:
   - host: pihole.cherry.web
     http:
-    - paths: /
-      pathType: Prefix
-      backend:
-        service: 
-          name: pihole
-          port:
-            number: 80
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: pihole
+            port:
+              number: 80
