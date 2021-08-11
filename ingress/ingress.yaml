@@ -4,7 +4,7 @@ metadata:
   name: minimal-ingress
 spec:
   rules:
-  - host: pihole.cherry.pi
+  - host: pihole.cherry.web
     http:
       paths:
       - path: "/"
