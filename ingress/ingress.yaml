@@ -14,3 +14,13 @@ spec:
             name: pihole
             port:
               number: 80
+  - host: redis.cherry.web
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: redis
+            port:
+              number: 6379

@@ -5,10 +5,10 @@ metadata:
   labels:
     name: redis-pod
 spec:
-  type: NodePort
+  type: ClusterIP
+  clusterIP: 10.43.0.22
   selector:
     name: redis-pod
   ports:
     - port: 6379
-      nodePort: 30379
       protocol: TCP
