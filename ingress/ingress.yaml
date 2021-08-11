@@ -3,14 +3,13 @@ kind: Ingress
 metadata:
   name: minimal-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
   - host: pihole.cherry.pi
     http:
       paths:
       - path: /
-        pathType: Prefix
         backend:
           service: 
             name: pihole
