@@ -13,20 +13,20 @@ spec:
     metadata:
       labels:
         name: pihole
-  spec: 
-    containers:
-    - image: redis
-      name: redis
-      ports:
-      - containerPort: 6379
-        protocol: TCP
-      volumeMounts:
+    spec: 
+      containers:
+      - image: redis
+        name: redis
+        ports:
+        - containerPort: 6379
+          protocol: TCP
+        volumeMounts:
+        - name: redis-nfs-pv
+          mountPath: "/data"
+      volumes:
       - name: redis-nfs-pv
-        mountPath: "/data"
-    volumes:
-    - name: redis-nfs-pv
-      persistentVolumeClaim:
-        claimName: redis-nfs-pvc
+        persistentVolumeClaim:
+          claimName: redis-nfs-pvc
 ---
 apiVersion: v1
 kind: Service
