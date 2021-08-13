@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+  labels:
+    name: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: pihole
+  template:
+    metadata:
+      labels:
+        name: pihole
+  spec: 
+    containers:
+    - image: redis
+      name: redis
+      ports:
+      - containerPort: 6379
+        protocol: TCP
+      volumeMounts:
+      - name: redis-nfs-pv
+        mountPath: "/data"
+    volumes:
+    - name: redis-nfs-pv
+      persistentVolumeClaim:
+        claimName: redis-nfs-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+spec:
+  type: ClusterIP
+  clusterIP: 10.43.0.22
+  selector:
+    name: redis
+  ports:
+  - name: redis-port
+    port: 6379
+    protocol: TCP

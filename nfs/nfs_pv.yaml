@@ -11,3 +11,15 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: "/mnt/external/shared"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-pvc
+spec:
+  storageClassName: "local-storage"
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi

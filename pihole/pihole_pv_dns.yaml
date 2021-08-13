@@ -13,3 +13,15 @@ spec:
   nfs:
     server: 10.43.0.20
     path: "/pihole/etc-dnsmasq.d"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pihole-pvc-dns
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 500Mi

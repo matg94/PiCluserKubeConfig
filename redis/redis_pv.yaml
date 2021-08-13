@@ -10,3 +10,15 @@ spec:
   nfs:
     server: 10.43.0.20
     path: "/redis"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-nfs-pvc
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi

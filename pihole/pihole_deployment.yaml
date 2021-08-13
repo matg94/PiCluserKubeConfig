@@ -44,3 +44,22 @@ spec:
       - name: pihole-pv-dns
         persistentVolumeClaim:
           claimName: pihole-pvc-dns
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole
+spec:
+  type: ClusterIP
+  clusterIP: 10.43.0.21
+  selector:
+    name: pihole
+  ports:
+  - name: dns-tcp
+    port: 53
+    protocol: TCP
+  - name: dns-udp
+    port: 53
+    protocol: UDP
+  - port: 80
+    name: http
