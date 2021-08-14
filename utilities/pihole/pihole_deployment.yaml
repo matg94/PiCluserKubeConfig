@@ -18,14 +18,11 @@ spec:
       - name: pihole
         image: pihole/pihole:latest
         ports:
-        - name: dns-tcp
-          containerPort: 53
+        - containerPort: 53
           protocol: TCP
-        - name: dns-udp
-          containerPort: 53
+        - containerPort: 53
           protocol: UDP
-        - name: http
-          containerPort: 80
+        - containerPort: 80
         env:
         - name: TZ
           value: Europe/London
