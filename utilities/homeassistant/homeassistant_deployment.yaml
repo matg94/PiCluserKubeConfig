@@ -28,6 +28,8 @@ spec:
       - name: homeassistant-pv
         persistentVolumeClaim:
           claimName: homeassistant-pvc
+      nodeSelector:
+        nodetype: master
 ---
 apiVersion: v1
 kind: Service
