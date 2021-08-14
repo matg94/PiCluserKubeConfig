@@ -19,8 +19,10 @@ spec:
         image: pihole/pihole:latest
         ports:
         - containerPort: 53
+          hostPort: 53
           protocol: TCP
         - containerPort: 53
+          hostPort: 53
           protocol: UDP
         - containerPort: 80
         env:
