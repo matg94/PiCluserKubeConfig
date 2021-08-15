@@ -2,6 +2,7 @@ kind: Pod
 apiVersion: v1
 metadata:
   name: nfs-server
+  namespace: storage
   labels:
     role: nfs-server
 spec:
@@ -33,6 +34,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
+  namespace: storage
   name: nfs-service
 spec:
   type: ClusterIP

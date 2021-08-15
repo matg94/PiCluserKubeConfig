@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pihole-deployment
+  namespace: utilities
   labels:
     name: pihole
 spec:
@@ -49,6 +50,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  namespace: utilities
   name: pihole
 spec:
   type: ClusterIP

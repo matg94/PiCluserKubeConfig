@@ -14,6 +14,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  namespace: storage
   name: redis-nfs-pvc
 spec:
   storageClassName: ""
