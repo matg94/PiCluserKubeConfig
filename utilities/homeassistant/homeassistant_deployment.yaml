@@ -30,16 +30,3 @@ spec:
           claimName: homeassistant-pvc
       nodeSelector:
         nodetype: master
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: homeassistant
-spec:
-  type: ClusterIP
-  clusterIP: 10.43.0.23
-  selector:
-    name: homeassistant
-  ports:
-  - port: 80
-    name: http

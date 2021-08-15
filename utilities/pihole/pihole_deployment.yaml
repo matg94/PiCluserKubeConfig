@@ -24,7 +24,6 @@ spec:
         - containerPort: 53
           hostPort: 53
           protocol: UDP
-        - containerPort: 80
         env:
         - name: TZ
           value: Europe/London
@@ -46,8 +45,6 @@ spec:
       - name: pihole-pv-dns
         persistentVolumeClaim:
           claimName: pihole-pvc-dns
-      nodeSelector:
-        nodetype: master
 ---
 apiVersion: v1
 kind: Service
