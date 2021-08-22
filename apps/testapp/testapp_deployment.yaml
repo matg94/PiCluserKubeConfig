@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testapp-deployment
+  namespace: apps
+  labels:
+    name: testapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: testapp
+  template:
+    metadata:
+      labels:
+        name: testapp
+    spec:
+      containers:
+      - name: testapp
+        image: registry.digitalocean.com/cherry-hub/flask-test-app:arm64
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: cherryhub-key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: testapp
+  namespace: apps
+spec:
+  type: ClusterIP
+  clusterIP: 10.43.0.42
+  ports:
+    - name: http
+      port: 80
+  selector:
+    name: testapp

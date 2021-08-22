@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: apps
+  name: apps-ingress
+spec:
+  rules:
+  - host: testapp.cherry.web
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service: 
+            name: testapp
+            port:
+              number: 80
