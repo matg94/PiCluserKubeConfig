@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+  namespace: k8s-utilities
+  labels:
+    name: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: prometheus
+  template:
+    metadata:
+      labels:
+        name: prometheus
+      annotations:
+        prometheus.io/scrape: "true"
+    spec:
+      containers:
+      - image: prom/prometheus:main
+        name: prometheus
+        args:
+        - '--storage.tsdb.retention=6h'
+        - '--storage.tsdb.path=/prometheus'
+        - '--config.file=/etc/prometheus/prometheus.yml'
+        command:
+        - /bin/prometheus
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/prometheus
+        - name: prometheus-pv
+          mountPath: /prometheus
+      volumes:
+      - name: config-volume
+        configMap:
+          name: prometheus-config
+      - name: prometheus-pv
+        persistentVolumeClaim:
+          claimName: prometheus-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+  namespace: k8s-utilities
+spec:
+  type: ClusterIP
+  clusterIP: 10.43.0.26
+  selector:
+    name: prometheus
+  ports:
+    - port: 80
+      targetPort: 9090
+      protocol: TCP
