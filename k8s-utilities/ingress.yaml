@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: k8s-utilities
+  name: k8s-utilities-ingress
+spec:
+  rules:
+  - host: grafana.cherry.web
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service: 
+            name: grafana
+            port:
+              number: 80

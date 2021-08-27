@@ -6,6 +6,7 @@ metadata:
   name: grafana-deployment
   namespace: k8s-utilities
 spec:
+  replicas: 1
   selector:
     matchLabels:
       name: grafana
@@ -24,7 +25,6 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
-              name: http-grafana
               protocol: TCP
           readinessProbe:
             failureThreshold: 3
@@ -58,9 +58,11 @@ metadata:
   name: grafana
   namespace: k8s-utilities
 spec:
-  ports:
-    - port: 3000
-      protocol: TCP
-      targetPort: http-grafana
+  type: ClusterIP
+  clusterIP: 10.43.0.25
   selector:
-    app: grafana
+    name: grafana
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
