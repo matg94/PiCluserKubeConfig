@@ -9,11 +9,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      name: pihole
+      name: redis
   template:
     metadata:
       labels:
-        name: pihole
+        name: redis
     spec: 
       containers:
       - image: redis
